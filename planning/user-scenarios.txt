@@ -1,0 +1,15 @@
+Given __, when _, then ____.
+
+Given that I'm NOT logged in as a user, I am presented the option of either logging in or registering
+
+Given that I'm logged in as a user, I have the ability to create a new password, view an existing password, view other members in your organization and log-out.
+
+Given that I'm logged in as a user, when I click on the button 'create a new password', then I will be re-directed to the create passwords page.
+
+Given that I'm logged in as a user, when I am on the create new password page, then I can either put in my own password or use the password generator.
+
+Given that I'm logged in as a user, when I click on an existing password, I can either copy it, update it, or delete it.
+
+Given that I'm logged in as a user, when i click update password, then an input box appears where I can input the new password.
+
+Given that I'm logged in as a user, when i click delete password, then the password is deleted.

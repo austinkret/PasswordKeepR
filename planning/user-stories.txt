@@ -1,0 +1,26 @@
+As a ___, I want to _, because ____.
+
+1. user can register/login and be assigned to an organization
+--- As a user, I want to register or login, because I want to be able to save my passwords and access passwords of everyone else in my organization.
+
+2. an organization has many users
+--- As an organization, I want to be able to add users to my organization, because I want them to be able to access our companies passwords.
+
+3. user can add a new username and password for a specific website
+--- As a user, I want to create a username and password for a specific site, and have that immediately shared with others in the same organization.
+
+4. app can generate passwords based on the criteria specified (password length, contains lowercase, contairs uppercase, contains numbers, etc)
+--- As a user, I want to be able to define the criteria of my passwords, because websites have different requirements for a valid password.
+
+5. user can edit and change their password any time
+--- As a user, I want to be able to edit or change my password at any time, because if the password becomes compromised, or an employee quits, we can ensure security to accounts.
+
+6. user has a convinient copy to clipboard button so they dont have to select the password
+--- As a user, I want to be able to use my passwords without retyping, memorizing, because the user experience and security will be improved.
+
+7. sites can be categoried, to, social (fb, linkedin), work related (bamboo, harvest), entertainment (snapchat, reddit), etc, etc
+--- As a user, I want to be able to sort and/or filter my sites based on category name, because it would be more efficient to find particular passwords.
+
+
+STRETCH OPTIONS:
+- Be able to join an organization
