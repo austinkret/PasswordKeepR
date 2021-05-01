@@ -10,6 +10,7 @@ const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
 const cookieSession = require('cookie-session');
+const path = require('path');
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -52,10 +53,28 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  if (req.session.userid) {
-    return res.redirect('/home');
+  if (req.session.test) {
+    return res.sendFile(path.join(__dirname + "/public/home.html"));
   }
   res.render('welcome-page');
+});
+
+app.post("/login", (req, res) => {
+  if (req.session.test) {
+    return res.sendFile(path.join(__dirname + "/public/home.html"));
+  }
+
+  req.session.test = 'test-cookie';
+  return res.sendFile(path.join(__dirname + "/public/home.html"));
+});
+
+app.post("/register", (req, res) => {
+  if (req.session.test) {
+    return res.sendFile(path.join(__dirname + "/public/home.html"));
+  }
+
+  req.session.test = 'test-cookie';
+  return res.sendFile(path.join(__dirname + "/public/home.html"));
 });
 
 app.listen(PORT, () => {
