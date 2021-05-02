@@ -63,7 +63,6 @@ app.post("/login", (req, res) => {
   if (req.session.test) {
     return res.sendFile(path.join(__dirname + "/public/home.html"));
   }
-
   req.session.test = 'test-cookie';
   return res.sendFile(path.join(__dirname + "/public/home.html"));
 });
@@ -72,9 +71,14 @@ app.post("/register", (req, res) => {
   if (req.session.test) {
     return res.sendFile(path.join(__dirname + "/public/home.html"));
   }
-
   req.session.test = 'test-cookie';
   return res.sendFile(path.join(__dirname + "/public/home.html"));
+});
+
+app.post("/logout", (request, response) => {
+  request.session = null;
+
+  response.redirect("/");
 });
 
 app.listen(PORT, () => {
