@@ -1,4 +1,9 @@
 // See: https://sass-lang.com/
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 nav {
   background-color: #00748b;
   display: flex;
