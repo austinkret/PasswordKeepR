@@ -19,9 +19,12 @@
 <body>
   <!-- NAV BAR -->
   <nav>
-    <span class="logo">Password KeepR</span>
-    <form method="POST" action="/logout" style="padding-top: 15px;">
-      <button type="submit">Logout</button>
+    <div>
+      <span class="logo">Password KeepR</span>
+      <button class="create-credential">Create New Credential</button>
+    </div>
+    <form method="POST" action="/logout">
+      <button class="logout" type="submit">Logout</button>
     </form>
   </nav>
 
