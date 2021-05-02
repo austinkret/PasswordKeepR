@@ -41,37 +41,32 @@ app.use(cookieSession({
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
+const welcomePage = require("./routes/welcome-page");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
+app.use("/", welcomePage());
 // Note: mount other resources here, using the same pattern above
 
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
-app.get("/", (req, res) => {
-  if (req.session.test) {
-    return res.sendFile(path.join(__dirname + "/public/home.html"));
-  }
-  res.render('welcome-page');
-});
-
 app.post("/login", (req, res) => {
-  if (req.session.test) {
+  if (req.session.userId) {
     return res.sendFile(path.join(__dirname + "/public/home.html"));
   }
-  req.session.test = 'test-cookie';
+  req.session.userId = 'userId-cookie';
   return res.sendFile(path.join(__dirname + "/public/home.html"));
 });
 
 app.post("/register", (req, res) => {
-  if (req.session.test) {
+  if (req.session.userId) {
     return res.sendFile(path.join(__dirname + "/public/home.html"));
   }
-  req.session.test = 'test-cookie';
+  req.session.userId = 'userId-cookie';
   return res.sendFile(path.join(__dirname + "/public/home.html"));
 });
 
