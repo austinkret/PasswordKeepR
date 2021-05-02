@@ -4,9 +4,7 @@
 <head>
   <title>Home Page</title>
 
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="../styles/layout.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
@@ -16,33 +14,41 @@
   <nav>
     <span class="logo">Password KeepR</span>
     <form method="POST" action="/register">
-      <button type="submit">Register</button>
+      <div class="buttons">
+        <button class="register" type="submit">Register</button>
     </form>
-    <form method="POST" action="/login" style="padding-top: 15px;">
-      <button type="submit">Login</button>
+    <form method="POST" action="/login">
+      <button class="login" type="submit">Login</button>
     </form>
+    </div>
   </nav>
 
   <header>
-    <h1>Password KeepR</h1>
-    <form method="POST" action="/register">
-      <button type="submit">Register</button>
-    </form>
-    <form method="POST" action="/login" style="padding-top: 15px;">
-      <button type="submit">Login</button>
-    </form>
+    <div class="welcome-header">
+      <h1>Password KeepR</h1>
+      <div class="header-buttons">
+        <form method="POST" action="/register">
+          <button class="register-header" type="submit">Register</button>
+        </form>
+        <form method="POST" action="/login">
+          <button class="login-header" type="submit">Login</button>
+        </form>
+      </div>
+    </div>
   </header>
 
   <main>
     <h2>FEATURES</h2>
-    <div>
-      <span>Store your organizations usernames and passwords for later!</span>
-    </div>
-    <div>
-      <span>All members of your organization can access the full suite of passwords!</span>
-    </div>
-    <div>
-      <span>Categorize your credentials for easier search and access!</span>
+    <div class="features-block">
+      <div class="feature-box">
+        <span class="feature-text">Store your organizations usernames and passwords for later!</span>
+      </div>
+      <div class="feature-box">
+        <span class="feature-text">All members of your organization can access the full suite of passwords!</span>
+      </div>
+      <div class="feature-box">
+        <span class="feature-text">Categorize your credentials for easier search and access!</span>
+      </div>
     </div>
   </main>
 </body>
