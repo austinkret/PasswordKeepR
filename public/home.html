@@ -28,12 +28,39 @@
     </form>
   </nav>
 
-  <!-- MAIN CONTAINER -->
-  <div>
-    <main>
-      <h1>THIS IS THE HOMEPAGE WHERE WE CAN NOW BUILD AJAX</h1>
-    </main>
+   <!-- sidebar -->
+   <div id="sidenav">
+    <button type="button" id="myPasswordsButton">my passwords</button>
+    <button type="button" id="socialMediaButton">social media</button>
+    <button type="button" id="workButton">work</button>
+    <button type="button" id="entertainmentButton">entertainment</button>
+    <button type="button" id="myOrganizationButton">my organization</button>
   </div>
+
+  <!-- main content -->
+  <main class="container">
+    <div id="searchBar">
+      <textarea class="searchBar"></textarea>
+      <button type="submit" class="search">search</button>
+      <button type="button" class="sort">sort</button>
+    </div>
+
+
+    <section id="allPasswordsPosted">
+      <article id="passwordPost">
+        <div class="editDelete">
+          <button type="button" class="edit">edit</button>
+          <button type="button" class="delete">delete</button>
+        </div>
+        <div class="credentialsInfo">
+          <button type="button" class="url">long URL</button>
+          <button type="button" class="reveal">reveal</button>
+          <button type="button" class="copy">copy to clipboard</button>
+        </div>
+      </article>
+    </section>
+  </main>
+
 
 </body>
 
