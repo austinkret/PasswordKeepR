@@ -9,6 +9,14 @@
 //   });;
 // });
 
+// const { Pool } = require('pg');
+
+// const pool = new Pool({
+//   user: 'labber',
+//   password: '123',
+//   host: 'localhost',
+//   database: 'midterm'
+// });
 
 //----Fake tester object----//
 const passwordData = [{
@@ -19,6 +27,7 @@ const passwordData = [{
 }]
 
 $(document).ready(function() {
+
   console.log('Document ready!!!!........');
   // Render password function which takes the new object and displays it onto the page
   const renderPassword = function(passwords) {
@@ -30,13 +39,14 @@ $(document).ready(function() {
   };
 
   // prepend credential to homepage
+  // function that inserts the object data into the html format that we want to display onto the page.
   const createPasswordElement = function(passwordData) {
     const newPassword =
     `<article id="passwordPost">
     <div class="dropdown">
     <button onclick="myFunction()" class="dropbtn">Dropdown</button>
     <div id="myDropdown" class="dropdown-content">
-    <a href="#">Edit</a>
+    <a id="edit" href="#">Edit</a>
     <a href="#">Delete</a>
     </div>
     </div>
@@ -50,6 +60,7 @@ $(document).ready(function() {
     return newPassword;
   };
 
+  //calls render password function to render the new section article with the correct information onto the page
   renderPassword(passwordData)
 
   //----CREATE NEW PASSWORD-----//
@@ -64,23 +75,36 @@ $(document).ready(function() {
 
 // function that loads the passwords from the database to show them on the screen.
 // const loadPasswords = function() {
-//   $.ajax('url to password data')
-//   .done(function(data) {
-//     renderPasswords(data)
-//   });
-// }
-// loadPasswords();
+  //   $.ajax('url to password data')
+  //   .done(function(data) {
+    //     renderPasswords(data)
+    //   });
+    // }
+    // loadPasswords();
 
-// //On click of 'Create new Credential"
-// $('#createPasswordSubmitButton').click(function() {
-//   fetchDataAndDisplay();
-// });
+    // //On click of 'Create new Credential"
+    // $('#createPasswordSubmitButton').click(function() {
+      //   fetchDataAndDisplay();
+      // });
 
-// const fetchDataAndDisplay = function() {
-//   $.ajax({
-//     url: "url goes here",
-//     type: 'GET'
-//   }).then (function() {
-//     loadPasswords();
-//   })
-// }
+      // const fetchDataAndDisplay = function() {
+        //   $.ajax({
+          //     url: "url goes here",
+          //     type: 'GET'
+          //   }).then (function() {
+            //     loadPasswords();
+            //   })
+            // }
+
+
+            // Adds new credentials just created to the database
+              // const addCredential = function(property) {
+              //   return pool
+              //   .query ( `INSERT INTO credentials (website_name, website_url, website_username, website_password, user_id, created_at, modified_at, category)
+              //   VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+              //   RETURNING *;
+              //   `, [credentials.website_name, credentials.website_url, credentials.website_username, credentials.website_password, credentials.user_id, credentials.created_at, credentials.modified_at, credentials.category])
+              //   .then ((res) => res.rows)
+
+              // }
+              // exports.addCredential = addCredential;

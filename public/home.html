@@ -18,7 +18,7 @@
 
 <body>
   <!-- NAV BAR -->
-  <nav>
+  <nav id="nav-bar" class="nav-bar">
     <div>
       <span class="logo">Password KeepR</span>
       <button id="createPasswordSubmitButton" class="create-credential">Create New Credential</button>
@@ -29,7 +29,7 @@
   </nav>
 
   <!-- sidebar -->
-  <div id="sidenav">
+  <div id="sidenav" class="sidenav">
     <button type="button" id="myPasswordsButton">my passwords</button>
     <button type="button" id="socialMediaButton">social media</button>
     <button type="button" id="workButton">work</button>
@@ -38,7 +38,9 @@
   </div>
 
   <!-- main content -->
-  <main class="container">
+  <main id="main"></main>
+
+  <main id="main-content" class="container">
     <div id="searchBar">
       <textarea class="searchBar"></textarea>
       <button type="submit" class="search">search</button>
@@ -47,17 +49,6 @@
 
 
     <section id="allPasswordsPosted">
-      <!-- <article id="passwordPost">
-        <div class="editDelete">
-          <button type="button" class="edit">edit</button>
-          <button type="button" class="delete">delete</button>
-        </div>
-        <div class="credentialsInfo">
-          <button type="button" class="url">long URL</button>
-          <button type="button" class="reveal">reveal</button>
-          <button type="button" class="copy">copy to clipboard</button>
-        </div>
-      </article> -->
     </section>
   </main>
 
@@ -66,6 +57,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <!-- JS Scripts -->
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/clickFunctions.js"></script>
 </body>
 
 </html>

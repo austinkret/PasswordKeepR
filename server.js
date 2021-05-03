@@ -58,24 +58,27 @@ app.use("/", welcomePage());
 // Separate them into separate routes files (see above).
 app.post("/login", (req, res) => {
   if (req.session.userId) {
-    return res.sendFile(path.join(__dirname + "/public/home.html"));
+    return res.redirect('/home');
   }
   req.session.userId = 'userId-cookie';
-  return res.sendFile(path.join(__dirname + "/public/home.html"));
+  return res.redirect('/home');
 });
 
 app.post("/register", (req, res) => {
   if (req.session.userId) {
-    return res.sendFile(path.join(__dirname + "/public/home.html"));
+    return res.redirect('/home');
   }
   req.session.userId = 'userId-cookie';
-  return res.sendFile(path.join(__dirname + "/public/home.html"));
+  return res.redirect('/home');
 });
 
 app.post("/logout", (request, response) => {
   request.session = null;
-
   response.redirect("/");
+});
+
+app.get("/home", (req, res) => {
+  return res.sendFile(path.join(__dirname + "/public/home.html"));
 });
 
 app.listen(PORT, () => {
