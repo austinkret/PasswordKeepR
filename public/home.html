@@ -10,7 +10,14 @@
   <title>Home</title>
 
   <!-- CSS STYLE SHEETS -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;1,400;1,600;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@1,900&family=Zen+Dots&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
 </head>
 
 
@@ -19,37 +26,46 @@
 <body>
   <!-- NAV BAR -->
   <nav id="nav-bar" class="nav-bar">
-    <div>
+    <div id="nav-left">
       <span class="logo">Password KeepR</span>
       <button id="createPasswordSubmitButton" class="create-credential">Create New Credential</button>
     </div>
-    <form method="POST" action="/logout">
+    <form id="nav-right" method="POST" action="/logout">
       <button class="logout" type="submit">Logout</button>
     </form>
   </nav>
 
   <!-- sidebar -->
   <div id="sidenav" class="sidenav">
-    <button type="button" id="myPasswordsButton">my passwords</button>
-    <button type="button" id="socialMediaButton">social media</button>
-    <button type="button" id="workButton">work</button>
-    <button type="button" id="entertainmentButton">entertainment</button>
-    <button type="button" id="myOrganizationButton">my organization</button>
-  </div>
-
-  <!-- main content -->
-  <main id="main"></main>
-
-  <main id="main-content" class="container">
     <div id="searchBar">
       <textarea class="searchBar"></textarea>
-      <button type="submit" class="search">search</button>
-      <button type="button" class="sort">sort</button>
     </div>
+    <div class="sidebar-buttons">
+      <button type="submit" class="search">search</button>
+      <button type="button" id="myPasswordsButton">my passwords</button>
+      <button type="button" id="socialMediaButton">social media</button>
+      <button type="button" id="workButton">work</button>
+      <button type="button" id="entertainmentButton">entertainment</button>
+      <button type="button" id="myOrganizationButton">my organization</button>
+    </div>
+  </div>
+  </div>
+
+  <div id="main-container">
+    <!-- main content -->
+    <div>
+      <main id="main">
+        <div>
+
+        </div>
+        <main id="main-content" class="container">
+          <button type="button" class="sort">sort</button>
+          <section id="allPasswordsPosted"></section>
+    </div>
+    </main>
 
 
-    <section id="allPasswordsPosted">
-    </section>
+  </div>
   </main>
 
 
@@ -58,6 +74,7 @@
   <!-- JS Scripts -->
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/clickFunctions.js"></script>
+  <script type="text/javascript" src="/scripts/dropdownButton.js"></script>
 </body>
 
 </html>

@@ -20,7 +20,7 @@
 
 //----Fake tester object----//
 const passwordData = [{
-  "logoUrl": "abcdefghi",
+  "logoUrl": "https://s.abcnews.com/images/Technology/ht_google_lb_150901_16x9_992.jpg",
   "url": "https://www.google.com/",
   "username": "users name here",
   "password": "123"
@@ -43,16 +43,18 @@ $(document).ready(function() {
   const createPasswordElement = function(passwordData) {
     const newPassword =
     `<article id="passwordPost">
+    <div class="credentialsInfo">
     <div class="dropdown">
-    <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+    <button onclick="myFunction()" class="dropbtn"><i class="fas fa-ellipsis-h"></i></button>
     <div id="myDropdown" class="dropdown-content">
     <a id="edit" href="#">Edit</a>
     <a href="#">Delete</a>
     </div>
     </div>
-    <div class="credentialsInfo">
-    <button type="button" class="url">${passwordData.url}</button>
-    <button type="button" class="username">${passwordData.username}</button>
+    <img class="logo-url" src="https://s.abcnews.com/images/Technology/ht_google_lb_150901_16x9_992.jpg">
+    <span>Google</span>
+    <span class="url">${passwordData.url}</span>
+    <span class="username">${passwordData.username}</span>
     <button type="button" class="copy">copy to clipboard</button>
     </div>
     </article>
