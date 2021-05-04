@@ -20,6 +20,30 @@ const dbParams = require('./lib/db.js');
 const db = new Pool(dbParams);
 db.connect();
 
+const pool = new Pool({
+  user: 'vagrant',
+  password: '123',
+  host: 'localhost',
+  database: 'midterm'
+});
+
+// pool.query('SELECT NOW()', (err, res) => {
+//   console.log(err, res)
+//   pool.end()
+// })
+
+pool.connect((err, client, done) => {
+  if (err) throw err
+  client.query('SELECT * FROM credentials', (err, res) => {
+    done()
+    if (err) {
+      console.log(err.stack)
+    } else {
+      console.log(res.rows)
+    }
+  })
+})
+
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
