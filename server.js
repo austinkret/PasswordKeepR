@@ -16,11 +16,11 @@ const path = require('path');
 
 // PG database client/connection setup
 const { Pool } = require('pg');
-const dbParams = require('./lib/db.js');
-const db = new Pool(dbParams);
-db.connect();
+// const dbParams = require('./lib/db.js');
+// const db = new Pool(dbParams);
+// db.connect();
 
-const pool = new Pool({
+const db = new Pool({
   user: 'vagrant',
   password: '123',
   host: 'localhost',
@@ -32,17 +32,17 @@ const pool = new Pool({
 //   pool.end()
 // })
 
-pool.connect((err, client, done) => {
-  if (err) throw err
-  client.query('SELECT * FROM credentials', (err, res) => {
-    done()
-    if (err) {
-      console.log(err.stack)
-    } else {
-      console.log(res.rows)
-    }
-  })
-})
+// pool.connect((err, client, done) => {
+//   if (err) throw err
+//   client.query('SELECT * FROM credentials', (err, res) => {
+//     done()
+//     if (err) {
+//       console.log(err.stack)
+//     } else {
+//       console.log(res.rows)
+//     }
+//   })
+// })
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -66,6 +66,7 @@ app.use(cookieSession({
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
+const credentialsRoutes = require("./routes/credentials");
 const widgetsRoutes = require("./routes/widgets");
 const welcomePage = require("./routes/welcome-page");
 const loginPage = require("./routes/login");
@@ -73,6 +74,7 @@ const loginPage = require("./routes/login");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
+app.use("/api/credentials", credentialsRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/", welcomePage());
 app.use("/login", loginPage());

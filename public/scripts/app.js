@@ -37,6 +37,18 @@ $(document).ready(function() {
     }
   };
 
+  // GET or POST requests to back-end
+  $(() => {
+  $.ajax({
+    method: "GET",
+    url: "/api/credentials/"
+  }).done((credentials) => {
+    for(user of credentials) {
+      $("<div>").text(user.name).appendTo($("body"));
+    }
+  });;
+});
+
   // prepend credential to homepage
   // function that inserts the object data into the html format that we want to display onto the page.
   const createPasswordElement = function(passwordData) {
