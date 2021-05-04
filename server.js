@@ -83,10 +83,14 @@ app.get("/home", (req, res) => {
   return res.render('home');
 });
 
-app.post("/create-new", (req, res) => {
+app.get("/create-new", (req, res) => {
   return res.render('createNewPassword');
 });
 
+
+app.post("/create-new", (req, res) => {
+  return res.render('createNewPassword');
+});
 
 app.post("/update-password", (req, res) => {
   return res.render('updatePassword');

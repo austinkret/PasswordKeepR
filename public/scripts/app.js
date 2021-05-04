@@ -21,14 +21,13 @@
 //----Fake tester object----//
 const passwordData = [{
   "logoUrl": "https://s.abcnews.com/images/Technology/ht_google_lb_150901_16x9_992.jpg",
+  "websiteName": "Google",
   "url": "https://www.google.com/",
-  "username": "users name here",
-  "password": "123"
+  "username": "username,",
+  "password": "password: 123"
 }];
 
 $(document).ready(function() {
-
-  console.log('Document ready!!!!........');
   // Render password function which takes the new object and displays it onto the page
   const renderPassword = function(passwords) {
     for (let values of passwords) {
@@ -51,10 +50,11 @@ $(document).ready(function() {
     <a href="#">Delete</a>
     </div>
     </div>
-    <img class="logo-url" src="https://s.abcnews.com/images/Technology/ht_google_lb_150901_16x9_992.jpg">
-    <span>Google</span>
+    <img class="logo-url" src="${passwordData.logoUrl}">
+    <span class = "websiteName">${passwordData.websiteName}</span>
     <span class="url">${passwordData.url}</span>
     <span class="username">${passwordData.username}</span>
+    <span class="password">${passwordData.password}</span>
     <button type="button" class="copy">copy to clipboard</button>
     </div>
     </article>
@@ -65,48 +65,27 @@ $(document).ready(function() {
   //calls render password function to render the new section article with the correct information onto the page
   renderPassword(passwordData);
 
-  //----CREATE NEW PASSWORD-----//
+  document.getElementById("submitNewPasswordButton").addEventListener('click', function(e) {
+    console.log("button clicked", $('#submitNewPasswordButton'))
+    e.preventDefault();
+    const form = $('#newForm').serialize();
 
+    $.ajax({
+      type: 'POST',
+      data: form,
+      url: '/create-new'
+    })
+    .then(function() {
+      loadPaswords();
+    })
+  })
 
-
-
+  const loadPaswords = function() {
+    $.ajax("/api/users")
+    .then(function(data) {
+      renderPassword(data)
+    })
+  }
+  loadPaswords()
 
 });
-
-
-
-// function that loads the passwords from the database to show them on the screen.
-// const loadPasswords = function() {
-  //   $.ajax('url to password data')
-  //   .done(function(data) {
-    //     renderPasswords(data)
-    //   });
-    // }
-    // loadPasswords();
-
-    // //On click of 'Create new Credential"
-    // $('#createPasswordSubmitButton').click(function() {
-      //   fetchDataAndDisplay();
-      // });
-
-      // const fetchDataAndDisplay = function() {
-        //   $.ajax({
-          //     url: "url goes here",
-          //     type: 'GET'
-          //   }).then (function() {
-            //     loadPasswords();
-            //   })
-            // }
-
-
-            // Adds new credentials just created to the database
-              // const addCredential = function(property) {
-              //   return pool
-              //   .query ( `INSERT INTO credentials (website_name, website_url, website_username, website_password, user_id, created_at, modified_at, category)
-              //   VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
-              //   RETURNING *;
-              //   `, [credentials.website_name, credentials.website_url, credentials.website_username, credentials.website_password, credentials.user_id, credentials.created_at, credentials.modified_at, credentials.category])
-              //   .then ((res) => res.rows)
-
-              // }
-              // exports.addCredential = addCredential;
