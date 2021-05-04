@@ -44,18 +44,23 @@ $(document).ready(function() {
     const newPassword =
     `<article id="passwordPost">
     <div class="credentialsInfo">
-    <div class="dropdown">
-    <button onclick="myFunction()" class="dropbtn"><i class="fas fa-ellipsis-h"></i></button>
-    <div id="myDropdown" class="dropdown-content">
-    <a id="edit" href="/update-password">Edit</a>
-    <a href="#">Delete</a>
+    <div class="image-drop">
+      <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn"><i class="fas fa-ellipsis-h"></i></button>
+        <div id="myDropdown" class="dropdown-content">
+        <a id="edit" href="/update-password">Edit</a>
+        <a href="#">Delete</a>
+        </div>
+        </div>
+        <img class="logo-url" src="https://s.abcnews.com/images/Technology/ht_google_lb_150901_16x9_992.jpg">
     </div>
+    <div class="credential-content">
+      <span>Google</span>
+      <span class="url">${passwordData.url}</span>
+      <span class="username">${passwordData.username}</span>
+      <span class="password">${passwordData.password}</span>
+      <button type="button" class="copy">Copy to Clipboard</button>
     </div>
-    <img class="logo-url" src="https://s.abcnews.com/images/Technology/ht_google_lb_150901_16x9_992.jpg">
-    <span>Google</span>
-    <span class="url">${passwordData.url}</span>
-    <span class="username">${passwordData.username}</span>
-    <button type="button" class="copy">copy to clipboard</button>
     </div>
     </article>
     `;

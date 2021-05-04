@@ -317,13 +317,6 @@ h2 {
   justify-content: center;
 }
 
-.logo-url {
-  width: 200px;
-  height: 100px;
-  display: flex;
-  align-items: flex-start;
-}
-
 body {
   font-family: Rubik;
   background-color: #EEE;
@@ -341,10 +334,20 @@ h1 {
   margin-bottom: 20px;
 }
 
+.image-drop {
+  position: absolute;
+  top: 0;
+}
+
+.logo-url {
+  position: relative;
+  display: inline-block;
+}
 
 /* DROPDOWN */
 .dropbtn {
-  float: right;
+  position:absolute;
+  right: 0;
   background-color: #3498DB;
   color: white;
   padding: 16px;
