@@ -24,7 +24,7 @@ const passwordData = [{
   "url": "https://www.google.com/",
   "username": "users name here",
   "password": "123"
-}]
+}];
 
 $(document).ready(function() {
 
@@ -33,7 +33,7 @@ $(document).ready(function() {
   const renderPassword = function(passwords) {
     for (let values of passwords) {
       console.log("-----------paswordData object key values", values);
-      const $password = createPasswordElement(values)
+      const $password = createPasswordElement(values);
       $('#allPasswordsPosted').prepend($password);
     }
   };
@@ -47,7 +47,7 @@ $(document).ready(function() {
     <div class="dropdown">
     <button onclick="myFunction()" class="dropbtn"><i class="fas fa-ellipsis-h"></i></button>
     <div id="myDropdown" class="dropdown-content">
-    <a id="edit" href="#">Edit</a>
+    <a id="edit" href="/update-password">Edit</a>
     <a href="#">Delete</a>
     </div>
     </div>
@@ -63,7 +63,7 @@ $(document).ready(function() {
   };
 
   //calls render password function to render the new section article with the correct information onto the page
-  renderPassword(passwordData)
+  renderPassword(passwordData);
 
   //----CREATE NEW PASSWORD-----//
 
@@ -71,7 +71,7 @@ $(document).ready(function() {
 
 
 
-})
+});
 
 
 

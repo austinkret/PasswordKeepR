@@ -7,5 +7,3 @@ module.exports = () => {
   });
   return router;
 };
-
-

@@ -44,32 +44,34 @@ app.use(cookieSession({
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 const welcomePage = require("./routes/welcome-page");
+const loginPage = require("./routes/login");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/", welcomePage());
+app.use("/login", loginPage());
 // Note: mount other resources here, using the same pattern above
 
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
-app.post("/login", (req, res) => {
+app.post("/home", (req, res) => {
   if (req.session.userId) {
-    return res.redirect('/home');
+    return res.render('home');
   }
   req.session.userId = 'userId-cookie';
-  return res.redirect('/home');
+  return res.render('home');
 });
 
-app.post("/register", (req, res) => {
+app.post("/home", (req, res) => {
   if (req.session.userId) {
-    return res.redirect('/home');
+    return res.render('home');
   }
   req.session.userId = 'userId-cookie';
-  return res.redirect('/home');
+  return res.render('home');
 });
 
 app.post("/logout", (request, response) => {
@@ -78,7 +80,20 @@ app.post("/logout", (request, response) => {
 });
 
 app.get("/home", (req, res) => {
-  return res.sendFile(path.join(__dirname + "/public/home.html"));
+  return res.render('home');
+});
+
+app.post("/create-new", (req, res) => {
+  return res.render('createNewPassword');
+});
+
+
+app.post("/update-password", (req, res) => {
+  return res.render('updatePassword');
+});
+
+app.get("/update-password", (req, res) => {
+  return res.render('updatePassword');
 });
 
 app.listen(PORT, () => {

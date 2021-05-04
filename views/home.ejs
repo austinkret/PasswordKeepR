@@ -26,30 +26,8 @@
 <body>
   <!-- NAV BAR -->
   <nav id="nav-bar" class="nav-bar">
-    <div id="nav-left">
-      <span class="logo">Password KeepR</span>
-      <button id="createPasswordSubmitButton" class="create-credential">Create New Credential</button>
-    </div>
-    <form id="nav-right" method="POST" action="/logout">
-      <button class="logout" type="submit">Logout</button>
-    </form>
+    <%- include('./partials/nav') %>
   </nav>
-
-  <!-- sidebar -->
-  <div id="sidenav" class="sidenav">
-    <div id="searchBar">
-      <textarea class="searchBar"></textarea>
-    </div>
-    <div class="sidebar-buttons">
-      <button type="submit" class="search">search</button>
-      <button type="button" id="myPasswordsButton">my passwords</button>
-      <button type="button" id="socialMediaButton">social media</button>
-      <button type="button" id="workButton">work</button>
-      <button type="button" id="entertainmentButton">entertainment</button>
-      <button type="button" id="myOrganizationButton">my organization</button>
-    </div>
-  </div>
-  </div>
 
   <div id="main-container">
     <!-- main content -->
@@ -60,11 +38,10 @@
         </div>
         <main id="main-content" class="container">
           <button type="button" class="sort">sort</button>
-          <section id="allPasswordsPosted"></section>
+          <section id="allPasswordsPosted">
+          </section>
     </div>
     </main>
-
-
   </div>
   </main>
 
