@@ -112,6 +112,10 @@ app.get("/home", (req, res) => {
   return res.render('home');
 });
 
+app.post("/home", (req, res) => {
+  return res.render('home');
+});
+
 app.get("/create-new", (req, res) => {
   return res.render('createNewPassword');
 });
