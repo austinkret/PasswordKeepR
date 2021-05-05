@@ -185,19 +185,20 @@ $(document).ready(function() {
       password: $("#password").val(),
       category: $("#category").val()
     }
-
     console.log(data);
+    location.replace('/home')
     $.ajax({
       method: "POST",
       url: "/home/home",
       data: data
     })
     .then((result) => {
-        console.log(result);
-      })
-      .catch((error) => {
-          console.error(error);
-        })
-    });
+
+      console.log("result--------", result);
+    })
+    .catch((error) => {
+      console.error(error);
+    })
+  });
 
 });
