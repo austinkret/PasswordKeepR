@@ -363,8 +363,36 @@ h2 {
   justify-content: flex-start;
 }
 
+#socialPasswordsPosted {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+#workPasswordsPosted {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+#entertainmentPasswordsPosted {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+#myPasswordsPosted {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
 .url {
-  font-size: 15px;
+  font-size: 11px;
 }
 
 .copy {

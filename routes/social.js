@@ -13,11 +13,12 @@ module.exports = (db) => {
     db.query(`
     SELECT * FROM credentials
     JOIN users ON users.id = user_id
-    WHERE users.organization_id = 1;
+    WHERE users.organization_id = 1
+    AND credentials.category = 'social';
     `)
       .then(data => {
-        const credentials = data.rows;
-        res.json({ credentials });
+        const social = data.rows;
+        res.json({ social });
       })
       .catch(err => {
         res

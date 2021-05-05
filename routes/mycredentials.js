@@ -12,12 +12,11 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     db.query(`
     SELECT * FROM credentials
-    JOIN users ON users.id = user_id
-    WHERE users.organization_id = 1;
+    WHERE user_id = 1;
     `)
       .then(data => {
-        const credentials = data.rows;
-        res.json({ credentials });
+        const mycredentials = data.rows;
+        res.json({ mycredentials });
       })
       .catch(err => {
         res
