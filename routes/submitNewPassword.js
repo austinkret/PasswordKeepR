@@ -1,14 +1,14 @@
 // const credentials = require("../../routes/credentials");
 const express = require('express');
 const router  = express.Router();
-const { Pool } = require('pg');
+// const { Pool } = require('pg');
 
-const pool = new Pool({
-  user: 'vagrant',
-  password: '123',
-  host: 'localhost',
-  database: 'midterm'
-});
+// const pool = new Pool({
+//   user: 'vagrant',
+//   password: '123',
+//   host: 'localhost',
+//   database: 'midterm'
+// });
 
 module.exports = (db) => {
   router.post("/home", (req, res) => {
@@ -29,25 +29,61 @@ module.exports = (db) => {
   RETURNING *;
   `;
 
-  const values = [
-    credentials.websitename,
-    credentials.websiteurl,
-    credentials.username,
-    credentials.password,
-    credentials.category
-  ];
+    const values = [
+      credentials.websitename,
+      credentials.websiteurl,
+      credentials.username,
+      credentials.password,
+      credentials.category
+    ];
 
-  return pool.query(queryString, values)
-  .then((result) => {
-    console.log(result.rows[0]);
-    result.rows[0];
-    res.send(200);
-    return 'success';
-  })
-  .catch((err) => {
-    console.log(err.message);
+    return db.query(queryString, values)
+      .then((result) => {
+        res.sendStatus(200);
+      })
+      .catch((err) => {
+        res.sendStatus(400);
+        console.log(err.message);
+      });
   });
+
+  router.post('/delete/:id', (req, res) => {
+    const queryString = `
+    DELETE FROM credentials
+    WHERE credentials.id = $1;`;
+
+    const values = [ parseInt(req.params.id) ];
+    console.log("REQ.PARAMS INFORMATION ------------ ", values);
+
+
+    return db.query(queryString, values)
+      .then(() => {
+        res.sendStatus(200);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   });
+
+  // router.post('/update-password', (req, res) => {
+
+  //   const queryString = `
+  //   UPDATE credentials
+  //   SET website_name = $1, website_url = $2, website_password = $3
+  //   WHERE credentials.id = $4;`;
+
+  //   const values = [ parseInt(req.params) ];
+
+  //   console.log("REQ.PARAMS INFORMATION UPDATE PASSWORD------------ ", values);
+  //   return db.query(queryString, values)
+  //     .then(() => {
+  //       res.sendStatus(200);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err.message);
+  //     });
+  // });
+
   return router;
 };
 

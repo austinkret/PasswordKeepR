@@ -1,5 +1,5 @@
 // $(() => {
-//   $.ajax({
+//   $.ajax({{
 //     method: "GET",
 //     url: "/api/users"
 //   }).done((users) => {
@@ -28,7 +28,7 @@
 // }];
 
 $(document).ready(function() {
-
+  console.log("start of document ready");
   // // Render password function which takes the new object and displays it onto the page
   // const renderPassword = function(passwords) {
   //   for (let values of passwords) {
@@ -46,11 +46,83 @@ $(document).ready(function() {
     }).done((credentials) => {
     // console.log('credentials before loop', credentials);
       let user = credentials.credentials;
+
+
+      window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+          let dropdowns = document.getElementsByClassName(`dropdown-content`);
+
+          for (let j = 0; j < dropdowns.length; j++) {
+            let openDropdown = dropdowns[j];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+        if (!event.target.matches('.delete')) {
+          let deletions = document.getElementsByClassName(`delete`);
+          console.log(deletions);
+          for (let i = 0; i < deletions.length; i++) {
+
+            const data = {
+              id: $(".delete").val(),
+            };
+
+            // $.ajax({
+            //   method: "POST",
+            //   url: "/home/delete/" + user.id,
+            //   data,
+            // })
+            //   .then((result) => {
+            //     console.log("result--------", result);
+            //     location.replace('/home');
+            //   })
+            //   .catch((error) => {
+            //     console.error(error);
+            //   });
+          }
+        }
+      };
+
       for (let i = 0; i < user.length; i++) {
       // console.log(user)
         const $password = createPasswordElement(user[i]);
         $('#allPasswordsPosted').prepend($password);
       }
+      // const myFunction = function() {
+      //   console.log("dsfsdfsdfsdfsdfsdf", user[i].id);
+      //   // document.getElementById("myDropdown").classList.toggle("show");
+      //   document.getElementsByClassName(`dropdown-content ${user[i].id}`).toggle("show");
+      // };
+
+
+
+      // document.querySelectorAll(".delete").forEach((el) => {
+      //   for (let i = 0; i < user.length; i++) {
+      //     console.log(user[i].id);
+      //     el.onclick = () => {
+
+      //       const data = {
+      //         id: $(".delete").val(),
+      //       };
+      //       console.log("this is data-----------------",data);
+      //       $.ajax({
+      //         method: "POST",
+      //         url: "/home/delete/",
+      //         data,
+      //       })
+      //         .then((result) => {
+      //           console.log("result--------", result);
+      //           location.replace('/home');
+      //         })
+      //         .catch((error) => {
+      //           console.error(error);
+      //         });
+
+      //     };
+      //   }
+      // });
+
     });
   });
 
@@ -122,17 +194,17 @@ $(document).ready(function() {
   // function that inserts the object data into the html format that we want to display onto the page.
   const createPasswordElement = function(passwordData) {
     const newPassword =
-    `<article id="passwordPost">
+    `<article id="passwordPost" class="${passwordData.id}">
     <div class="credentialsInfo">
     <div class="image-drop">
-      <div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn"><i class="fas fa-ellipsis-h"></i></button>
-        <div id="myDropdown" class="dropdown-content">
-        <a id="edit" href="/update-password">Edit</a>
-        <a href="#">Delete</a>
-        </div>
-        </div>
-        <img class="logo-url" src="https://logo.clearbit.com/${passwordData.website_url}">
+    <div class="dropdown" id="${passwordData.website_name}">
+      <button onclick=myFunction(${passwordData.id}) id="${passwordData.id}" class="dropbtn"><i class="fas fa-ellipsis-h"></i></button>
+      <div id="myDropdown" class="dropdown-content ${passwordData.id}">
+        <a id="edit" class="edit">Edit</a>
+        <a type="button" onclick=deleteFunction(${passwordData.id}) class="delete ${passwordData.id}">Delete</a>
+      </div>
+    </div>
+    <img class="logo-url" src="https://logo.clearbit.com/${passwordData.website_url}">
     </div>
     <div class="credential-content">
       <span class = "websiteName">${passwordData.website_name}</span>
@@ -186,20 +258,33 @@ $(document).ready(function() {
       category: $("#category").val()
     };
     console.log(data);
-    location.replace('/home');
     $.ajax({
       method: "POST",
       url: "/home/home",
       data: data
     })
       .then((result) => {
-
         console.log("result--------", result);
+        location.replace('/home');
       })
       .catch((error) => {
         console.error(error);
       });
   });
+
+
+  $(".delete").on("click", function(event) {
+    console.log("this------------this-----------------", this);
+    event.preventDefault();
+
+
+  });
+
+  console.log("document finished");
+
+
+
+  //UPDATE PASSWORD//
 
   $("#updatePasswordButton").on('click', function(event) {
     event.preventDefault();
