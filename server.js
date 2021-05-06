@@ -72,6 +72,7 @@ const workRoute = require("./routes/work");
 const entertainmentRoute = require("./routes/entertainment");
 const submitNewPassword = require("./routes/submitNewPassword");
 const welcomePage = require("./routes/welcome-page");
+const myOrganizationRoute = require("./routes/myorganization");
 
 
 // Mount all resource routes
@@ -82,6 +83,7 @@ app.use("/social", socialRoute(db));
 app.use("/work", workRoute(db));
 app.use("/entertainment", entertainmentRoute(db));
 app.use("/home", submitNewPassword(db));
+app.use("/myorganization", myOrganizationRoute(db));
 
 // Note: mount other resources here, using the same pattern above
 
@@ -136,6 +138,14 @@ app.get("/mycredentials", (req, res) => {
 
 app.post("/mycredentials", (req, res) => {
   return res.render('mycredentials');
+});
+
+app.get("/myorganization", (req, res) => {
+  return res.render('myorganization');
+});
+
+app.post("/myorganization", (req, res) => {
+  return res.render('myorganization');
 });
 
 app.get("/social", (req, res) => {

@@ -192,6 +192,26 @@ $(document).ready(function() {
     });
   });
 
+  // GET or POST requests to back-end
+  $(() => {
+    $.getJSON({
+      method: "GET",
+      url: "/myorganization/"
+    }).done((myorganization) => {
+      // console.log('users before loop', users);
+      let user = myorganization.myorganization;
+      for (let i = 0; i < user.length; i++) {
+        console.log(user)
+        let headshot = `https://randomuser.me/api/portraits/men/${i+1}.jpg`
+        if (i % 2 === 0) {
+          headshot = `https://randomuser.me/api/portraits/women/${i+1}.jpg`
+        }
+        const $user = createUserElement(user[i], headshot);
+        $('#myUsersPosted').prepend($user);
+      }
+    });
+  });
+
   // prepend credential to homepage
   // function that inserts the object data into the html format that we want to display onto the page.
   const createPasswordElement = function(passwordData) {
@@ -223,6 +243,31 @@ $(document).ready(function() {
     </article>
     `;
     return newPassword;
+  };
+
+  // individual users of organization
+  // function that inserts the object data into the html format that we want to display onto the page.
+  const createUserElement = function(userData, profilePic) {
+    const newUser =
+    `<article id="passwordPost" class="${userData.id}">
+    <div class="credentialsInfo">
+    <div class="image-drop">
+      <a href="${userData.website_url}" target="_blank">
+      <img class="logo-url" src="${profilePic}">
+      </a>
+      </div>
+    <div class="credential-content">
+      <span class = "websiteName">${userData.first_name} ${userData.last_name}</span>
+      <span class="url">User ID: ${userData.id}</span>
+      <span class="username-text">Email: </span>
+      <span class="username">${userData.email}</span>
+      <span class="username-text">Organization: </span>
+      <span id="${userData.website_password}" class="password">${userData.organization_name}</span>
+    </div>
+    </div>
+    </article>
+    `;
+    return newUser;
   };
 
   //calls render password function to render the new section article with the correct information onto the page
