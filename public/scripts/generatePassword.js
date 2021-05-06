@@ -30,7 +30,7 @@ $(document).ready(function() {
     for (let i = 0; i < option.charLength; i++) {
       randomString += possibleChar.charAt(Math.floor(Math.random() * possibleChar.length));
     }
-    return $('.generate').append(randomString);
+    return $('#newPassword').append(randomString);
   };
 
   // $("#generate").on("click", function(event) {
@@ -40,7 +40,7 @@ $(document).ready(function() {
   $("#generateForm").on("submit", function(event) {
     console.log("above prevent default");
     event.preventDefault();
-    $('.generate').empty();
+    $('#newPassword').empty();
     console.log("submitting form");
 
     // character length
