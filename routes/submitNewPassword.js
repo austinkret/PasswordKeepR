@@ -41,6 +41,7 @@ module.exports = (db) => {
   .then((result) => {
     console.log(result.rows[0]);
     result.rows[0];
+    res.send(200);
     return 'success';
   })
   .catch((err) => {

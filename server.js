@@ -157,7 +157,17 @@ app.post("/entertainment", (req, res) => {
 });
 
 app.post("/update-password", (req, res) => {
-  return res.render('updatePassword');
+  // return res.render('updatePassword');
+  //1. Receive the data from the AJAX req.body
+  //2. Create a function in server.js to actually update the table with the new
+  // values.
+  //3. Then return the res.json({result: "done"}) back to the Ajax call.
+  console.log("req body for update password!!", req.body)
+  
+  db.updatePasssword(req.body.username)
+  .then((result)=>{
+    res.json({result: "done"});
+  });
 });
 
 app.get("/update-password", (req, res) => {

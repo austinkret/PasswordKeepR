@@ -194,11 +194,35 @@ $(document).ready(function() {
     })
     .then((result) => {
 
-      console.log("result--------", result);
+      // console.log("result--------", result);
     })
     .catch((error) => {
       console.error(error);
     })
+  });
+
+  $("#updatePasswordButton").on('click', function(event) {
+    event.preventDefault();
+    console.log("UPDATE BUTTON WAS CLICKED!!!!!!!!");
+
+    const data = {
+      username: $("#newUsername").val(),
+      password: $("#newPassword").val(),
+      category: $("#newCategory").val()
+    };
+    console.log(data);
+    $.ajax({
+      method: "POST",
+      url: "update-password",
+      data: data
+    })
+      .then((result) => {
+        console.log("result--------", result);
+        location.replace('/home');
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   });
 
 });
