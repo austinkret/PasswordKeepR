@@ -72,7 +72,7 @@ const workRoute = require("./routes/work");
 const entertainmentRoute = require("./routes/entertainment");
 const submitNewPassword = require("./routes/submitNewPassword");
 const welcomePage = require("./routes/welcome-page");
-const loginPage = require("./routes/login");
+
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -82,7 +82,7 @@ app.use("/social", socialRoute(db));
 app.use("/work", workRoute(db));
 app.use("/entertainment", entertainmentRoute(db));
 app.use("/home", submitNewPassword(db));
-app.use("/login", loginPage());
+
 // Note: mount other resources here, using the same pattern above
 
 // api routers (/api/whatever) -> these don't direct to new pages, these are functionality
@@ -111,11 +111,14 @@ app.get("/home", (req, res) => {
     return res.render('home');
   }
   req.session.userId = 'userId-cookie';
-  console.log('REQ SESSION USER ID!!!!!!!!!!!!!!!!!!!!!!')
   return res.render('home');
 });
 
 app.post("/home", (req, res) => {
+  if (req.session.userId) {
+    return res.render('home');
+  }
+  req.session.userId = 'userId-cookie';
   return res.render('home');
 });
 
