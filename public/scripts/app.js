@@ -275,11 +275,6 @@ $(document).ready(function() {
   });
 
 
-<<<<<<< HEAD
-  $(".delete").on("click", function(event) {
-    console.log("this------------this-----------------", this);
-    event.preventDefault();
-=======
 
 
 
@@ -288,7 +283,6 @@ $(document).ready(function() {
   // $(".delete").on("click", function(event) {
   //   console.log("this------------this-----------------", this);
   //   event.preventDefault();
->>>>>>> 9f3e8611e7648ff568862b533baab0e302ae108f
 
 
   // });
