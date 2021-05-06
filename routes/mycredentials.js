@@ -12,7 +12,8 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     db.query(`
     SELECT * FROM credentials
-    WHERE user_id = 1;
+    WHERE user_id = 1
+    ORDER BY website_name DESC;
     `)
       .then(data => {
         const mycredentials = data.rows;

@@ -7,14 +7,19 @@
     </form>
   </div>
   <form id="nav-right" method="POST" action="/logout">
+    <div class="name-bar">
+      <span class="full-name">Alice Anderson</span>
+      <span class="email">aanderson@red.com</span>
+      <span class="organization">Red</span>
+    </div>
     <button class="logout" type="submit">Logout</button>
   </form>
 </nav>
 
 <!-- sidebar -->
 <div id="sidenav" class="sidenav">
-  <div id="searchBar">
-    <textarea class="searchBar" placeholder="Search..."></textarea>
+  <div>
+    <input type="text" id="searchBar" class="searchBar" onkeyup="searchFunction()" placeholder="Search..."></input>
   </div>
   <div class="sidebar-buttons">
     <button type="submit" class="sidebar-button" class="search">Search</button>

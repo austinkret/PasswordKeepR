@@ -15,7 +15,8 @@ module.exports = (db) => {
     FROM credentials
     JOIN users ON users.id = user_id
     WHERE users.organization_id = 1
-    AND category = 'work';
+    AND category = 'work'
+    ORDER BY website_name DESC;
     `)
       .then(data => {
         const work = data.rows;
