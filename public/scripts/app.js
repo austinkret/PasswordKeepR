@@ -206,8 +206,10 @@ $(document).ready(function() {
         <a type="button" id="${passwordData.id}" onclick=deleteFunction(${passwordData.id}) class="delete ${passwordData.id}">Delete</a>
       </div>
     </div>
-    <img class="logo-url" src="https://logo.clearbit.com/${passwordData.website_url}">
-    </div>
+      <a href="${passwordData.website_url}" target="_blank">
+      <img class="logo-url" src="https://logo.clearbit.com/${passwordData.website_url}">
+      </a>
+      </div>
     <div class="credential-content">
       <span class = "websiteName">${passwordData.website_name}</span>
       <span class="url">${passwordData.website_url}</span>
