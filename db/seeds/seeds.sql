@@ -34,12 +34,12 @@ INSERT INTO credentials (website_name, website_url, website_username, website_pa
 INSERT INTO credentials (website_name, website_url, website_username, website_password, user_id, created_at, modified_at, category, thumbnail_logo_url)
 	VALUES ('Dropbox', 'https://www.dropbox.com', 'reddropbox', 'b2b2b2', 1, '2021-04-02 00:00:01', '2021-04-02 00:00:01', 'work', 'https://aem.dropbox.com/cms/content/dam/dropbox/www/en-us/branding/app-dropbox-windows@2x.png');
 INSERT INTO credentials (website_name, website_url, website_username, website_password, user_id, created_at, modified_at, category, thumbnail_logo_url)
-	VALUES ('Netflix', 'https://www.netflix.com/ca/', 'rednetflix', 'c3c3c3', 1, '2021-04-03 00:00:01', '2021-04-03 00:00:01', 'entertainment', 'https://i.pinimg.com/originals/b3/d1/7a/b3d17a6384736431a203c0935da4b2d8.png');
+	VALUES ('Netflix', 'https://www.netflix.com/', 'rednetflix', 'c3c3c3', 1, '2021-04-03 00:00:01', '2021-04-03 00:00:01', 'entertainment', 'https://i.pinimg.com/originals/b3/d1/7a/b3d17a6384736431a203c0935da4b2d8.png');
 
 INSERT INTO credentials (website_name, website_url, website_username, website_password, user_id, created_at, modified_at, category, thumbnail_logo_url)
 	VALUES ('Facebook', 'https://www.facebook.com', 'redfacebook', 'd4d4d4', 2, '2021-04-04 00:00:01', '2021-04-04 00:00:01', 'social', 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Facebook_logo_%28square%29.png/480px-Facebook_logo_%28square%29.png');
 INSERT INTO credentials (website_name, website_url, website_username, website_password, user_id, created_at, modified_at, category, thumbnail_logo_url)
-	VALUES ('Salesforce', 'https://www.salesforce.com/ca/?ir=1', 'redsalesforce', 'e5e5e5', 2, '2021-04-05 00:00:01', '2021-04-05 00:00:01', 'work', 'https://i1.wp.com/dotweekly.com/wp-content/uploads/2018/04/salesforce-logo.png');
+	VALUES ('Salesforce', 'https://www.salesforce.com/', 'redsalesforce', 'e5e5e5', 2, '2021-04-05 00:00:01', '2021-04-05 00:00:01', 'work', 'https://i1.wp.com/dotweekly.com/wp-content/uploads/2018/04/salesforce-logo.png');
 INSERT INTO credentials (website_name, website_url, website_username, website_password, user_id, created_at, modified_at, category, thumbnail_logo_url)
 	VALUES ('Prime Video', 'https://www.primevideo.com', 'redprimevideo', 'f6f6f6', 2, '2021-04-06 00:00:01', '2021-04-06 00:00:01', 'entertainment', 'https://i.pinimg.com/originals/02/89/01/0289017ed536952e596eba113a8d5213.png');
 
@@ -48,4 +48,4 @@ INSERT INTO credentials (website_name, website_url, website_username, website_pa
 INSERT INTO credentials (website_name, website_url, website_username, website_password, user_id, created_at, modified_at, category, thumbnail_logo_url)
 	VALUES ('Asana', 'https://asana.com', 'redasana', 'h8h8h8', 3, '2021-04-08 00:00:01', '2021-04-08 00:00:01', 'work', 'https://media-exp1.licdn.com/dms/image/C510BAQGiP2rzD7Jb8w/company-logo_200_200/0/1561986613569?e=2159024400&v=beta&t=Ah-Q7e7Sh6tRNYH9o8O6whmt7RUniuRivP-LY775RZ8');
 INSERT INTO credentials (website_name, website_url, website_username, website_password, user_id, created_at, modified_at, category, thumbnail_logo_url)
-	VALUES ('Disney Plus', 'https://www.disneyplus.com/en-ca/', 'reddisneyplus', 'i9i9i9', 3, '2021-04-09 00:00:01', '2021-04-09 00:00:01', 'entertainment', 'https://www.google.com/url?sa=i&url=https%3A%2F%2Ficons8.com%2Ficon%2F4tkTkVC6UFcr%2Fdisney-plus&psig=AOvVaw3rmBpxaC_Ta58RBmkMz2es&ust=1620068341993000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJiguITXq_ACFQAAAAAdAAAAABAD');
+	VALUES ('Disney Plus', 'https://www.disneyplus.com/', 'reddisneyplus', 'i9i9i9', 3, '2021-04-09 00:00:01', '2021-04-09 00:00:01', 'entertainment', 'https://www.google.com/url?sa=i&url=https%3A%2F%2Ficons8.com%2Ficon%2F4tkTkVC6UFcr%2Fdisney-plus&psig=AOvVaw3rmBpxaC_Ta58RBmkMz2es&ust=1620068341993000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJiguITXq_ACFQAAAAAdAAAAABAD');

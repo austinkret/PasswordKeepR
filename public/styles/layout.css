@@ -488,6 +488,7 @@ h1 {
   right: -163px;
 }
 
+
 .dropdown-content {
   display: none;
   position: absolute;
@@ -506,6 +507,8 @@ h1 {
 }
 
 .dropdown-content.show {
+  position: absolute;
+  right: 0;
   width: 50px;
   border-radius: 15px;
   color: black;
@@ -518,7 +521,10 @@ h1 {
   color: #f3f3f3;
 }
 
-.show {display: block;}
+.show {
+  display: block;
+
+}
 
 .fa-ellipsis-h {
   transform: scale(3, 3);

@@ -70,7 +70,7 @@ const myCredentialsRoute = require("./routes/mycredentials");
 const socialRoute = require("./routes/social");
 const workRoute = require("./routes/work");
 const entertainmentRoute = require("./routes/entertainment");
-const submitNewPassword = require("./routes/submitNewPassword")
+const submitNewPassword = require("./routes/submitNewPassword");
 const welcomePage = require("./routes/welcome-page");
 const loginPage = require("./routes/login");
 
@@ -84,6 +84,8 @@ app.use("/entertainment", entertainmentRoute(db));
 app.use("/home", submitNewPassword(db));
 app.use("/login", loginPage());
 // Note: mount other resources here, using the same pattern above
+
+// api routers (/api/whatever) -> these don't direct to new pages, these are functionality
 
 
 // Home page
@@ -99,9 +101,9 @@ app.get("/", (req, res) => {
 //   // return res.redirect("/home")
 // });
 
-app.post("/logout", (request, response) => {
-  request.session = null;
-  response.redirect("/");
+app.post("/logout", (req, res) => {
+  req.session = null;
+  res.redirect("/");
 });
 
 app.get("/home", (req, res) => {
@@ -157,8 +159,36 @@ app.post("/entertainment", (req, res) => {
 });
 
 app.post("/update-password", (req, res) => {
-  return res.render('updatePassword');
+  // return res.render('updatePassword');
+  //1. Receive the data from the AJAX req.body
+  //2. Create a function in server.js to actually update the table with the new
+  // values.
+  //3. Then return the res.json({result: "done"}) back to the Ajax call.
+  // console.log("req body for update password!!", req.body)
+  const updatePassword = function() {
+
+    const queryString = `
+    UPDATE credentials
+    SET website_name = $1, website_url = $2, website_password = $3
+    WHERE credentials.id = $4;`;
+
+    const values = [];
+
+    return db.query(queryString, values)
+      .then((result) => {
+        res.sendStatus(200);
+      })
+      .catch((err) => {
+        res.sendStatus(400);
+        console.log(err.message);
+      });
+  };
+  // updatePassword(req.body.username)
+  // .then((result)=>{
+  //   res.json({result: "done"});
+  // });
 });
+
 
 app.get("/update-password", (req, res) => {
   return res.render('updatePassword');
