@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- HEAD -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Organization</title>
+
+  <!-- CSS STYLE SHEETS -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;1,400;1,600;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@1,900&family=Zen+Dots&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+</head>
+
+
+<!-- BODY CONTENT -->
+
+<body>
+  <!-- NAV BAR -->
+  <nav id="nav-bar" class="nav-bar">
+    <%- include('./partials/nav') %>
+  </nav>
+
+  <div id="main-container">
+    <!-- main content -->
+    <div class="main-container">
+      <main id="main">
+        <main id="main-content" class="container">
+          <div class="content-header">
+            <span class="page-title">My Organization</span>
+            <!-- <button type="button" class="sort">sort</button> -->
+          </div>
+          <section id="myUsersPosted">
+          </section>
+    </div>
+    </main>
+  </div>
+  </main>
+
+
+  <!-- External JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" />
+  <!-- JS Scripts -->
+  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/clickFunctions.js"></script>
+  <script type="text/javascript" src="/scripts/dropdownButton.js"></script>
+  <script type="text/javascript" src="/scripts/deleteFunction.js"></script>
+  <script type="text/javascript" src="/scripts/copyText.js"></script>
+</body>
+
+</html>
