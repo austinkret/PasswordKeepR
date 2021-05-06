@@ -163,7 +163,7 @@ app.post("/update-password", (req, res) => {
   // values.
   //3. Then return the res.json({result: "done"}) back to the Ajax call.
   console.log("req body for update password!!", req.body)
-  
+
   db.updatePasssword(req.body.username)
   .then((result)=>{
     res.json({result: "done"});

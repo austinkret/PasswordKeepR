@@ -40,19 +40,19 @@ $(document).ready(function() {
 
   // GET or POST requests to back-end
   $(() => {
-  $.getJSON({
-    method: "GET",
-    url: "/credentials/"
-  }).done((credentials) => {
+    $.getJSON({
+      method: "GET",
+      url: "/credentials/"
+    }).done((credentials) => {
     // console.log('credentials before loop', credentials);
-    let user = credentials.credentials
-    for (let i=0; i < user.length; i++) {
+      let user = credentials.credentials;
+      for (let i = 0; i < user.length; i++) {
       // console.log(user)
-      const $password = createPasswordElement(user[i]);
-      $('#allPasswordsPosted').prepend($password);
-    }
-  });;
-});
+        const $password = createPasswordElement(user[i]);
+        $('#allPasswordsPosted').prepend($password);
+      }
+    });
+  });
 
   // GET or POST requests to back-end
   $(() => {
@@ -61,62 +61,62 @@ $(document).ready(function() {
       url: "/social/"
     }).done((social) => {
       // console.log('credentials before loop', credentials);
-      let user = social.social
-      for (let i=0; i < user.length; i++) {
+      let user = social.social;
+      for (let i = 0; i < user.length; i++) {
         // console.log(user)
         const $password = createPasswordElement(user[i]);
         $('#socialPasswordsPosted').prepend($password);
       }
-    });;
+    });
   });
 
-    // GET or POST requests to back-end
-    $(() => {
-      $.getJSON({
-        method: "GET",
-        url: "/work/"
-      }).done((work) => {
-        // console.log('credentials before loop', credentials);
-        let user = work.work
-        for (let i=0; i < user.length; i++) {
-          // console.log(user)
-          const $password = createPasswordElement(user[i]);
-          $('#workPasswordsPosted').prepend($password);
-        }
-      });
+  // GET or POST requests to back-end
+  $(() => {
+    $.getJSON({
+      method: "GET",
+      url: "/work/"
+    }).done((work) => {
+      // console.log('credentials before loop', credentials);
+      let user = work.work;
+      for (let i = 0; i < user.length; i++) {
+        // console.log(user)
+        const $password = createPasswordElement(user[i]);
+        $('#workPasswordsPosted').prepend($password);
+      }
     });
+  });
 
-        // GET or POST requests to back-end
-        $(() => {
-          $.getJSON({
-            method: "GET",
-            url: "/entertainment/"
-          }).done((entertainment) => {
-            // console.log('credentials before loop', credentials);
-            let user = entertainment.entertainment
-            for (let i=0; i < user.length; i++) {
-              // console.log(user)
-              const $password = createPasswordElement(user[i]);
-              $('#entertainmentPasswordsPosted').prepend($password);
-            }
-          });;
-        });
+  // GET or POST requests to back-end
+  $(() => {
+    $.getJSON({
+      method: "GET",
+      url: "/entertainment/"
+    }).done((entertainment) => {
+      // console.log('credentials before loop', credentials);
+      let user = entertainment.entertainment;
+      for (let i = 0; i < user.length; i++) {
+        // console.log(user)
+        const $password = createPasswordElement(user[i]);
+        $('#entertainmentPasswordsPosted').prepend($password);
+      }
+    });
+  });
 
-            // GET or POST requests to back-end
-            $(() => {
-              $.getJSON({
-                method: "GET",
-                url: "/mycredentials/"
-              }).done((mycredentials) => {
-                // console.log('credentials before loop', credentials);
-                let user = mycredentials.mycredentials
-                for (let i=0; i < user.length; i++) {
-                  // console.log(user)
-                  const $password = createPasswordElement(user[i]);
-                  $('#myPasswordsPosted').prepend($password);
-                }
-              });;
-            });
+  // GET or POST requests to back-end
+  $(() => {
+    $.getJSON({
+      method: "GET",
+      url: "/mycredentials/"
+    }).done((mycredentials) => {
+      // console.log('credentials before loop', credentials);
+      let user = mycredentials.mycredentials;
+      for (let i = 0; i < user.length; i++) {
+        // console.log(user)
+        const $password = createPasswordElement(user[i]);
+        $('#myPasswordsPosted').prepend($password);
+      }
+    });
+  });
 
   // prepend credential to homepage
   // function that inserts the object data into the html format that we want to display onto the page.
@@ -175,7 +175,7 @@ $(document).ready(function() {
   // loadPaswords()
 
 
-  $("#submitNewPasswordButton").on('click', function (event) {
+  $("#submitNewPasswordButton").on('click', function(event) {
     event.preventDefault();
 
     const data = {
@@ -184,21 +184,21 @@ $(document).ready(function() {
       username: $("#username").val(),
       password: $("#password").val(),
       category: $("#category").val()
-    }
+    };
     console.log(data);
-    location.replace('/home')
+    location.replace('/home');
     $.ajax({
       method: "POST",
       url: "/home/home",
       data: data
     })
-    .then((result) => {
+      .then((result) => {
 
-      // console.log("result--------", result);
-    })
-    .catch((error) => {
-      console.error(error);
-    })
+        console.log("result--------", result);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   });
 
   $("#updatePasswordButton").on('click', function(event) {
