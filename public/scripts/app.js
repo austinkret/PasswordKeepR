@@ -211,8 +211,9 @@ $(document).ready(function() {
     <div class="credential-content">
       <span class = "websiteName">${passwordData.website_name}</span>
       <span class="url">${passwordData.website_url}</span>
-      <span class="username">Username: ${passwordData.website_username}</span>
-      <span>Password:</span>
+      <span class="username-text">Username: </span>
+      <span class="username">${passwordData.website_username}</span>
+      <span class="username-text">Password: </span>
       <span id="${passwordData.website_password}" class="password">${passwordData.website_password}</span>
       <button class="copy" onclick="CopyToClipboard('${passwordData.website_password}')">Copy to Clipboard</button>
     </div>
@@ -313,6 +314,5 @@ $(document).ready(function() {
         console.error(error);
       });
   });
-
 
 });

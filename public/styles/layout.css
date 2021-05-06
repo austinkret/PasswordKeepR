@@ -194,7 +194,7 @@ h2 {
 }
 
 .sidebar-buttons {
-  height: 300px;
+  height: 217px;
 
 }
 
@@ -303,7 +303,7 @@ h2 {
   padding-top: 106px;
   padding-left: 20%;
   margin-left: 30px;
-  width: 90%;
+  width: 78%;
   height: 100vh;
   display: flex;
   flex-direction: row;
@@ -340,20 +340,21 @@ h2 {
   justify-content: space-between;
   border: #283747;
   border-width: 10px;
+  border-bottom: 2px solid #283747;
 }
 
 .main-container {
-  width: 85%;
+  width: 98%;
 }
 
 #passwordPost {
   margin: 2%;
-  margin-bottom: 5%;
+  margin-bottom: 30px;
   border-radius: 15px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   width: 200px;
-  height: 237px;
+  height: 287px;
   background-color: #283747;
 }
 
@@ -416,6 +417,7 @@ h2 {
 body {
   font-family: Rubik;
   background-color: #EEE;
+  width: auto;
 }
 
 h1 {
@@ -436,7 +438,7 @@ h1 {
   bottom: -5px;
   display: flex;
   flex-direction: column;
-  height: 120px;
+  height: 190px;
 }
 
 .credentialsInfo {
@@ -529,8 +531,64 @@ h1 {
   transform: scale(3, 3);
 }
 
-.websitename {
+.websiteName {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #f3f3f3;
+  font-size: 20px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
   font-family: "Rubik";
   font-weight: bold;
   font-style: italic;
+}
+
+.url {
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-bottom: 5px;
+  font-family: "Rubik";
+  font-weight: 300;
+  font-style: italic;
+}
+
+.username {
+  display: flex;
+  justify-content: center;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-bottom: 5px;
+  font-family: "Rubik";
+  font-weight: 300;
+  font-style:normal;
+}
+
+
+.password {
+  display: flex;
+  justify-content: center;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-bottom: 5px;
+  font-family: "Rubik";
+  font-weight: bold;
+  font-style:normal;
+}
+
+.username-text {
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-bottom: 5px;
+  font-family: "Rubik";
+  font-weight: bold;
+  font-style: italic;
+}
+
+.attributes {
+  color: #1b232cea;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
