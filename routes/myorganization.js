@@ -11,16 +11,13 @@ const router  = express.Router();
 module.exports = (db) => {
   router.get("/", (req, res) => {
     db.query(`
-    SELECT credentials.id, website_name, website_url, website_username, website_password, category
-    FROM credentials
-    JOIN users ON users.id = user_id
-    WHERE users.organization_id = 1
-    AND credentials.category = 'entertainment'
-    ORDER BY website_name DESC;
+    SELECT users.*, organizations.name as organization_name FROM users
+    JOIN organizations ON organizations.id = organization_id
+    WHERE organization_id = 1;
     `)
       .then(data => {
-        const entertainment = data.rows;
-        res.json({ entertainment });
+        const myorganization = data.rows;
+        res.json({ myorganization });
       })
       .catch(err => {
         res

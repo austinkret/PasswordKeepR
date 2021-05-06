@@ -14,7 +14,8 @@ module.exports = (db) => {
     SELECT credentials.id, website_name, website_url, website_username, website_password, category
     FROM credentials
     JOIN users ON users.id = user_id
-    WHERE users.organization_id = 1;
+    WHERE users.organization_id = 1
+    ORDER BY website_name DESC;
     `)
       .then(data => {
         const credentials = data.rows;

@@ -9,17 +9,20 @@ const deleteFunction = function(id) {
   const data = {
     id: deleteFromDb[0].id
   };
-
-  $.ajax({
-    method: "POST",
-    url: "/home/delete/" + deleteFromDb[0].id,
-    data,
-  })
-    .then((result) => {
-      console.log("result--------", result);
-      location.replace('/home');
+  if (window.confirm(`Are you sure you want to delete this credential?`)) {
+    $.ajax({
+      method: "POST",
+      url: "/home/delete/" + deleteFromDb[0].id,
+      data,
     })
-    .catch((error) => {
-      console.error(error);
-    });
+      .then((result) => {
+        console.log("result--------", result);
+        location.replace('/home');
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  } else {
+    return;
+  }
 };
