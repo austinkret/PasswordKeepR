@@ -13,7 +13,8 @@ module.exports = (db) => {
     db.query(`
     SELECT users.*, organizations.name as organization_name FROM users
     JOIN organizations ON organizations.id = organization_id
-    WHERE organization_id = 1;
+    WHERE organization_id = 1
+    ORDER BY users.first_name DESC;
     `)
       .then(data => {
         const myorganization = data.rows;

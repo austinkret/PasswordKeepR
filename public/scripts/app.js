@@ -260,9 +260,7 @@ $(document).ready(function() {
     `<article id="passwordPost" class="${userData.id}">
     <div class="credentialsInfo">
     <div class="image-drop">
-      <a href="${userData.website_url}" target="_blank">
       <img class="logo-url" src="${profilePic}">
-      </a>
       </div>
     <div class="credential-content">
       <span class = "websiteName">${userData.first_name} ${userData.last_name}</span>
@@ -307,6 +305,7 @@ $(document).ready(function() {
 
   $("#submitNewPasswordButton").on('click', function(event) {
     event.preventDefault();
+    $('.warning').empty();
 
     const data = {
       websitename: $("#websitename").val(),
@@ -315,6 +314,12 @@ $(document).ready(function() {
       password: $("#password").val(),
       category: $("#category").val()
     };
+
+    if (!$("#websitename").val().length || !$("#websiteurl").val().length || !$("#username").val().length || !$("#password").val().length || !$("#category").val().length) {
+
+      return $('.warning').append('<span class="warning">Please fill in all fields before hitting submit!</span>').hide().fadeIn();
+    }
+
     console.log(data);
     $.ajax({
       method: "POST",
@@ -351,6 +356,7 @@ $(document).ready(function() {
 
   $("#updatePasswordButton").on('click', function(event) {
     event.preventDefault();
+    $('.warning').empty();
     console.log("UPDATE BUTTON WAS CLICKED!!!!!!!!");
     const id = $(this).attr('data-id');
     const data = {
@@ -359,6 +365,11 @@ $(document).ready(function() {
       category: $("#newCategory").val(),
     };
     console.log("data!!!!!!!!!!!data!!!!!!!!!!!!!!!data", data);
+
+    if (!$("#newPassword").val().length) {
+      return $('.warning').append('<span class="warning">Please fill in password field before hitting submit!</span>').hide().fadeIn();
+    }
+
     $.ajax({
       method: "POST",
       url: `/update-password/${id}`,

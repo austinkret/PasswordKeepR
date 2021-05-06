@@ -285,14 +285,6 @@ header {
   font-size: 20px;
 }
 
-h2 {
-  font-size: 30px;
-  margin-top: 35px;
-  margin-bottom: 25px;
-  display: flex;
-  justify-content: center;
-}
-
 #sidenav {
   z-index: 1;
   height: 100vh; /* Full-height: remove this if you want "auto" height */
@@ -306,28 +298,18 @@ h2 {
   padding-top: 20px;
 }
 
-.searchBar {
+.side-bar-header {
   font-family: "Rubik";
-  width: 90%;
-  height: 25px;
-  font-size: 15px;
-  margin:auto;
+  font-weight: 600;
+  font-size: 30px;
+  color: #f3f3f3;
+  margin-top: 6px;
+  margin-left: 20px;
+  border-bottom: 2px solid #De354c;
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  border-radius: 15px;
-  border: none;
-  background-color: #f3f3f3;
-  color: #0f539b;
-  resize: none;
-  vertical-align: middle;
-}
-
-.sidebar-buttons {
-  height: 217px;
-
+  width: 90%;
+  height: 55px;
 }
 
 .search {
@@ -348,13 +330,13 @@ h2 {
 
 .sidebar-button{
   width: 90%;
-  height: 25px;
+  height: 42px;
   font-size: 15px;
   margin:auto;
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  margin-bottom: 15px;
+  margin-top: 15px;
   border-radius: 15px;
   align-items: center;
   border: none;
@@ -366,13 +348,13 @@ h2 {
 
 .sidebar-button:hover{
   width: 90%;
-  height: 25px;
+  height: 42px;
   font-size: 15px;
   margin:auto;
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  margin-bottom: 15px;
+  margin-top: 15px;
   border-radius: 15px;
   align-items: center;
   border: none;
@@ -429,6 +411,7 @@ h2 {
   border: #283747;
   border-width: 10px;
   border-bottom: 2px solid #283747;
+  height: 55px;
 }
 
 .main-container {
@@ -461,6 +444,13 @@ h2 {
 
 
 #allPasswordsPosted {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+#myUsersPosted {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -535,7 +525,7 @@ h2 {
   cursor: pointer;
 }
 
-.copy:focus {
+.copy:active {
   background-color: #bb2b3f;
   color:#f3f3f3;
   border: none;
@@ -576,7 +566,7 @@ h2 {
 
 .logo-url {
   position: absolute;
-  left: 50px;
+  left: 56px;
   top: 8px;
   display: inline-block;
   border-radius: 63px;
@@ -586,7 +576,7 @@ h2 {
 
 .logo-url:hover {
   position: absolute;
-  left: 50px;
+  left: 56px;
   top: 8px;
   display: inline-block;
   border-radius: 63px;
@@ -721,7 +711,7 @@ h2 {
 }
 
 .attributes {
-  color: #1b232cea;
+  color: #4c6f97;
   display: flex;
   justify-content: center;
   margin-top: 10px;
@@ -780,9 +770,40 @@ h2 {
     align-items: center;
     width: 160px;
     height: 30px;
-    margin: 10 10 10 10;
+    margin-top: 15px;
     outline: none;
     cursor: pointer;
+}
+
+#generate-test:hover {
+  font-family: "Rubik";
+    margin: 10px 1.5em 10px 1.5em;
+    border-radius: 20px;
+    border: none;
+    background-color: #bb2b3f;
+    color: white;
+    align-items: center;
+    width: 160px;
+    height: 30px;
+    margin-top: 15px;
+    outline: none;
+    cursor: pointer;
+}
+
+#generate-test:active {
+  font-family: "Rubik";
+    margin: 10px 1.5em 10px 1.5em;
+    border-radius: 20px;
+    border: none;
+    background-color: #bb2b3f;
+    color: white;
+    align-items: center;
+    width: 160px;
+    height: 30px;
+    margin-top: 15px;
+    outline: none;
+    cursor: pointer;
+    transform: translateY(2px);
 }
 
 .newPasswordLabel {
@@ -805,6 +826,22 @@ h2 {
   cursor: pointer;
 }
 
+#updatePasswordButton:hover {
+  color: #f3f3f3;
+  font-family: "Rubik";
+  font-weight: 900;
+  margin: 10px 1.5em 10px 1.5em;
+  border-radius: 20px;
+  border: none;
+  background-color: #bb2b3f;
+  align-items: center;
+  width: 100px;
+  height: 30px;
+  margin: 10 10 10 10;
+  outline: none;
+  cursor:pointer;
+}
+
 .check1Style {
   opacity: 0.7;
 }
@@ -817,4 +854,85 @@ h2 {
   opacity: 0.7;
 }
 
+.instructions {
+  margin-top: 0px;
+  margin-bottom: 5px;
+  font-size: smaller;
+  font-family: 'Rubik';
 
+}
+
+.enterCharacterLength {
+  width: 65%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.checkboxes {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+
+
+/* CREATE PASSWORD FORM */
+
+#main-container2 {
+  padding-top: 106px;
+  padding-left: 20%;
+  margin-left: 30px;
+  width: 78%;
+  height: 100vh;
+  z-index: -200;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-control {
+  border: none;
+  font-family: "rubik";
+  color: #De354c;
+  font-size: medium;
+}
+
+#category {
+  margin: 10px;
+  border: none;
+  font-family: 'Rubik';
+}
+
+#submitNewPasswordButton {
+  color: #f3f3f3;
+    font-family: "Rubik";
+    font-weight: 900;
+    margin: 10px 1.5em 10px 1.5em;
+    border-radius: 20px;
+    border: none;
+    background-color: #De354c;
+    align-items: center;
+    width: 90px;
+    height: 30px;
+    outline: none;
+    cursor: pointer;
+}
+
+#submitNewPasswordButton:hover {
+  color: #f3f3f3;
+  font-family: "Rubik";
+  font-weight: 900;
+  margin: 10px 1.5em 10px 1.5em;
+  border-radius: 20px;
+  border: none;
+  background-color: #bb2b3f;
+  align-items: center;
+  width: 90px;
+  height: 30px;
+  margin: 10 10 10 10;
+  outline: none;
+  cursor:pointer;
+}
+
+#password {
+  margin-top: 5px;
+}

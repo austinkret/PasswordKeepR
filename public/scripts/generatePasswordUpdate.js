@@ -5,7 +5,7 @@ $(document).ready(function() {
     let possibleChar = '';
 
     if (!option.upperCase && !option.lowerCase && !option.specialChar) {
-      possibleChar += "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*_-+=|;<,>.?/";
+      possibleChar += "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*_-+=|;,.?/";
     }
 
     if (option.upperCase) {
@@ -14,11 +14,10 @@ $(document).ready(function() {
 
     if (option.lowerCase) {
       possibleChar += "abcdefghijklmnopqrstuvwxyz";
-      console.log(possibleChar);
     }
 
     if (option.specialChar) {
-      possibleChar += "!@#$%^&*_-+=|;<,>.?/";
+      possibleChar += "!@#$%^&*_-+=|;,.?/";
     }
 
     if (!option.charLength) {
