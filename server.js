@@ -111,6 +111,7 @@ app.get("/home", (req, res) => {
     return res.render('home');
   }
   req.session.userId = 'userId-cookie';
+  console.log('REQ SESSION USER ID!!!!!!!!!!!!!!!!!!!!!!')
   return res.render('home');
 });
 
@@ -158,40 +159,41 @@ app.post("/entertainment", (req, res) => {
   return res.render('entertainment');
 });
 
-app.post("/update-password", (req, res) => {
+app.post("/update-password/:id", (req, res) => {
+  console.log("req body here------------------->", req.body)
+
+  // const websiteUsername = req.body.username;
+  const websitePassword = req.body.password;
+  // const category = req.body.category;
+
   // return res.render('updatePassword');
   //1. Receive the data from the AJAX req.body
   //2. Create a function in server.js to actually update the table with the new
   // values.
+
   //3. Then return the res.json({result: "done"}) back to the Ajax call.
   // console.log("req body for update password!!", req.body)
-  const updatePassword = function() {
+  const updatePassword = function(request) {
 
     const queryString = `
     UPDATE credentials
-    SET website_name = $1, website_url = $2, website_password = $3
-    WHERE credentials.id = $4;`;
+    SET website_password = $1
+    WHERE credentials.id = $2;`;
 
-    const values = [];
+    const values = [request.websitePassword, req.params.id];
 
     return db.query(queryString, values)
-      .then((result) => {
-        res.sendStatus(200);
-      })
-      .catch((err) => {
-        res.sendStatus(400);
-        console.log(err.message);
-      });
+
   };
-  // updatePassword(req.body.username)
-  // .then((result)=>{
-  //   res.json({result: "done"});
-  // });
+  updatePassword({ websitePassword})
+  .then((result)=>{
+    res.json({result: "done"});
+  });
 });
 
 
-app.get("/update-password", (req, res) => {
-  return res.render('updatePassword');
+app.get("/update-password/:id", (req, res) => {
+  return res.render('updatePassword', {id: req.params.id});
 });
 
 app.listen(PORT, () => {
