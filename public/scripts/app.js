@@ -195,6 +195,14 @@ $(document).ready(function() {
   // prepend credential to homepage
   // function that inserts the object data into the html format that we want to display onto the page.
   const createPasswordElement = function(passwordData) {
+    let finalurl;
+    let url = passwordData.website_url
+    if (url.substring(0, 4) !== "http") {
+      finalurl = `http://${url}`;
+    } else {
+      finalurl = url;
+    }
+
     const newPassword =
     `<article id="passwordPost" class="${passwordData.id}">
     <div class="credentialsInfo">
@@ -206,12 +214,12 @@ $(document).ready(function() {
         <a type="button" id="${passwordData.id}" onclick=deleteFunction(${passwordData.id}) class="delete ${passwordData.id}">Delete</a>
       </div>
     </div>
-      <a href="${passwordData.website_url}" target="_blank">
+      <a href="${finalurl}" target="_blank">
       <img class="logo-url" src="https://logo.clearbit.com/${passwordData.website_url}">
       </a>
       </div>
     <div class="credential-content">
-      <span class = "websiteName">${passwordData.website_name}</span>
+      <span id="websitename" class="websiteName">${passwordData.website_name}</span>
       <span class="url">${passwordData.website_url}</span>
       <span class="username-text">Username: </span>
       <span class="username">${passwordData.website_username}</span>
@@ -299,7 +307,7 @@ $(document).ready(function() {
   $("#updatePasswordButton").on('click', function(event) {
     event.preventDefault();
     console.log("UPDATE BUTTON WAS CLICKED!!!!!!!!");
-    const id = $(this).attr('data-id')
+    const id = $(this).attr('data-id');
     const data = {
       username: $("#newUsername").val(),
       password: $("#newPassword").val(),
