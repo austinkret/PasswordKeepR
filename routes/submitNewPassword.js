@@ -65,7 +65,7 @@ module.exports = (db) => {
       });
   });
 
-  // router.post('/update-password', (req, res) => {
+  // router.post('/update-password/:id', (req, res) => {
 
   //   const queryString = `
   //   UPDATE credentials

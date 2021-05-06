@@ -61,26 +61,28 @@ $(document).ready(function() {
         }
         if (!event.target.matches('.delete')) {
           let deletions = document.getElementsByClassName(`delete`);
-          console.log(deletions);
-          for (let i = 0; i < deletions.length; i++) {
+          // console.log(deletions);
+          // for (let i = 0; i < user.length; i++) {
+          //   // console.log(user[i].id);
+          //   // console.log(object);
 
-            const data = {
-              id: $(".delete").val(),
-            };
+          //   // const data = {
+          //   //   id: user
+          //   // };
 
-            // $.ajax({
-            //   method: "POST",
-            //   url: "/home/delete/" + user.id,
-            //   data,
-            // })
-            //   .then((result) => {
-            //     console.log("result--------", result);
-            //     location.replace('/home');
-            //   })
-            //   .catch((error) => {
-            //     console.error(error);
-            //   });
-          }
+          //   // $.ajax({
+          //   //   method: "POST",
+          //   //   url: "/home/delete/",
+          //   //   data,
+          //   // })
+          //   //   .then((result) => {
+          //   //     console.log("result--------", result);
+          //   //     location.replace('/home');
+          //   //   })
+          //   //   .catch((error) => {
+          //   //     console.error(error);
+          //   //   });
+          // }
         }
       };
 
@@ -198,10 +200,10 @@ $(document).ready(function() {
     <div class="credentialsInfo">
     <div class="image-drop">
     <div class="dropdown" id="${passwordData.website_name}">
-      <button onclick=myFunction(${passwordData.id}) id="${passwordData.id}" class="dropbtn"><i class="fas fa-ellipsis-h"></i></button>
+      <button onclick=myFunction(${passwordData.id}) id="${passwordData.id}" class="dropbtn"><i id="${passwordData.id}" onclick=myFunction(${passwordData.id}) class="fas fa-ellipsis-h"></i></button>
       <div id="myDropdown" class="dropdown-content ${passwordData.id}">
         <a id="edit" class="edit">Edit</a>
-        <a type="button" onclick=deleteFunction(${passwordData.id}) class="delete ${passwordData.id}">Delete</a>
+        <a type="button" id="${passwordData.id}" onclick=deleteFunction(${passwordData.id}) class="delete ${passwordData.id}">Delete</a>
       </div>
     </div>
     <img class="logo-url" src="https://logo.clearbit.com/${passwordData.website_url}">
@@ -211,8 +213,8 @@ $(document).ready(function() {
       <span class="url">${passwordData.website_url}</span>
       <span class="username">Username: ${passwordData.website_username}</span>
       <span>Password:</span>
-      <span id="${passwordData.website_name}" class="password">${passwordData.website_password}</span>
-      <button class="copy" onclick="CopyToClipboard('${passwordData.website_name}')">Copy to Clipboard</button>
+      <span id="${passwordData.website_password}" class="password">${passwordData.website_password}</span>
+      <button class="copy" onclick="CopyToClipboard('${passwordData.website_password}')">Copy to Clipboard</button>
     </div>
     </div>
     </article>
@@ -278,12 +280,12 @@ $(document).ready(function() {
 
 
 
-  $(".delete").on("click", function(event) {
-    console.log("this------------this-----------------", this);
-    event.preventDefault();
+  // $(".delete").on("click", function(event) {
+  //   console.log("this------------this-----------------", this);
+  //   event.preventDefault();
 
 
-  });
+  // });
 
   console.log("document finished");
 
