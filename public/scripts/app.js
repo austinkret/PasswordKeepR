@@ -200,7 +200,7 @@ $(document).ready(function() {
     <div class="dropdown" id="${passwordData.website_name}">
       <button onclick=myFunction(${passwordData.id}) id="${passwordData.id}" class="dropbtn"><i class="fas fa-ellipsis-h"></i></button>
       <div id="myDropdown" class="dropdown-content ${passwordData.id}">
-        <a id="edit" class="edit">Edit</a>
+        <a href="/update-password/${passwordData.id}" id="edit" class="edit">Edit</a>
         <a type="button" onclick=deleteFunction(${passwordData.id}) class="delete ${passwordData.id}">Delete</a>
       </div>
     </div>
@@ -289,16 +289,16 @@ $(document).ready(function() {
   $("#updatePasswordButton").on('click', function(event) {
     event.preventDefault();
     console.log("UPDATE BUTTON WAS CLICKED!!!!!!!!");
-
+    const id = $(this).attr('data-id')
     const data = {
       username: $("#newUsername").val(),
       password: $("#newPassword").val(),
-      category: $("#newCategory").val()
+      category: $("#newCategory").val(),
     };
-    console.log(data);
+    console.log("data!!!!!!!!!!!data!!!!!!!!!!!!!!!data", data);
     $.ajax({
       method: "POST",
-      url: "update-password",
+      url: `/update-password/${id}`,
       data: data
     })
       .then((result) => {
