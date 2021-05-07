@@ -71,6 +71,38 @@ nav {
   cursor:pointer;
 }
 
+.features {
+  font-family: "Rubik";
+  font-weight: 900;
+  font-style: italic;
+  color: #283747;
+  font-size; 40px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  height: 35px;
+  width: 100%;
+}
+
+.features-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.feature-text {
+  color: #f3f3f3;
+  padding: 15px;
+  height: 150px;
+  width: 300px;
+  border-radius: 20px;
+  background-color: #283747;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
 .buttons {
   font-family: 'Rubik';
   border: none;
