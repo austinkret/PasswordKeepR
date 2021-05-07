@@ -1,0 +1,76 @@
+*** Which project you chose and why - CALVIN 0:45
+Password KeepR
+Make this generic descrption a bit more personal:
+A storage system for passwords for organzations.
+An organization, like Lighthouse labs, has many different accounts which need to be shared between users.
+This app will let an authorized user acess all the passwords of the organization.
+The app will also let a user generate a new password for a specific account (just like LastPass).
+Users will be able to generate a password based on the options the form will provide.
+Some of the options are: password length, contains lowercase, contairs uppercase, contains numbers, and contains symbols.
+If a user needs to log in to a specific website (e.g. Facebook) they can go into the app, find the appropriate password, click a button which copies the password into the clipboard, and log in.
+
+
+*** What each of you did, individually - CAROLYN 0:30
+DB - SQL queries, table and seed setup, ERD
+Planning - stories, scenarios
+Planning 2.0 - routes, wireframes
+
+Tackled most of the project together, big issues such as generate password completed via pair programming
+Leads:
+Deletion/CSS - Austin
+Edit/updating links/buttons - Carolyn
+Categorizing - Calvin
+
+
+*** Show us what you built (demo the app and show us the features) - CAROLYN 1:30
+
+Login click will bring us into the "Red" organization
+(one of many organizations)
+
+GO TO "My organization" tab
+I'm Alice, my colleagues are Bob and Carol
+Click logo to return to dashboard, where we see credentials created
+by everyone in the organization
+
+GO TO "Create new credential"
+Enter Spotify website name, URL, and username
+Discuss how password requirements can be fulfilled by using
+various combinations of checkboxes: none/some/all checkboxes
+Settle on a generated password, select Entertainment dropbox, Submit
+
+--
+CALVIN 0:45
+Uh oh! While I was creating the Spotify credential,
+got a notification that my password for Disney has been compromised.
+Let's change it via Edit.
+Settle on a generated password (defaults), Update
+Point out API for logo generation
+
+Copy to clipboard
+Point out alert
+Click logo to visit actual website in new tab
+
+--
+AUSTIN 0:45
+Uh oh! My Netflix subscription expired recently and I no longer plan
+to subscribe. I want to delete this credential from my account.
+Demo the Delete
+
+So which passwords did I create
+Go to My Passwords
+Explain that these are the passwords that I personally created,
+whereas the dashboard shows all passwords accessible to me via my org
+
+Go through Social Media / Work / Entertainment
+Explain that it is segmenting by category (SQL query)
+
+Go back to dashboard
+
+
+*** What challenges you had and how you overcame them - AUSTIN 0:45
+Isolating the specific record/row that we wanted our functions to operate on
+(e.g. editing/deleting password for Asana specifically)
+Figuring out how our front-end and back-end files worked together,
+and what syntax was appropriate/workable for each
+Git merge/pull prep and success?
+Wish list for future implementation
